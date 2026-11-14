@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface CountryFlagProps {
   countryCode: string; // ISO 3166-1 alpha-2, e.g. "BE", "FR", "ES"
@@ -15,7 +15,31 @@ export function isoToFlagEmoji(iso: string): string {
   return String.fromCodePoint(...codePoints);
 }
 
-// 100% Offline Vector Country Flag definitions (Horizontal Tricolors, Vertical Tricolors, Bicolors, Nordic Crosses, Special)
+/**
+ * Convert a 2-character regional indicator flag emoji (e.g. "🇯🇵") back to lowercase ISO-2 ("jp")
+ */
+export function flagEmojiToIso(emoji: string): string | null {
+  if (!emoji) return null;
+  const cps = Array.from(emoji.trim()).map((c) => c.codePointAt(0) || 0);
+  if (cps.length === 2 && cps[0] >= 127462 && cps[0] <= 127487 && cps[1] >= 127462 && cps[1] <= 127487) {
+    return String.fromCharCode(cps[0] - 127397, cps[1] - 127397).toLowerCase();
+  }
+  return null;
+}
+
+/**
+ * Normalize country code to lowercase ISO-2 and resolve local SVG path in /flags/<iso2>.svg
+ */
+export function resolveLocalCountryFlagUrl(rawCode: string): string {
+  const clean = (rawCode || '').trim().toLowerCase();
+  const iso = clean === 'uk' ? 'gb' : clean;
+  if (/^[a-z]{2}$/.test(iso)) {
+    return `/flags/${iso}.svg`;
+  }
+  return '/flags/un.svg';
+}
+
+// 100% Offline Vector Country Flag fallback definitions
 const H_TRICOLOR: Record<string, [string, string, string]> = {
   NL: ['#AE1C28', '#FFFFFF', '#21468B'],
   DE: ['#000000', '#DD0000', '#FFCE00'],
@@ -127,13 +151,16 @@ export function getCountryFlagSvg(rawCode: string): string {
     return `<svg xmlns="http://www.w3.org/2000/svg" width="60" height="40" viewBox="0 0 60 40"><rect width="60" height="40" fill="${bg}"/><rect x="18" width="7" height="40" fill="${cross}"/><rect y="16.5" width="60" height="7" fill="${cross}"/></svg>`;
   }
 
-  // Deterministic heraldic color + Unicode flag badge fallback (100% offline)
   const hue = ((code.charCodeAt(0) || 65) * 37 + (code.charCodeAt(1) || 65) * 73) % 360;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="60" height="40" viewBox="0 0 60 40"><rect width="60" height="40" fill="hsl(${hue}, 65%, 28%)"/><rect width="20" height="40" fill="hsl(${(hue + 45) % 360}, 75%, 38%)"/><text x="30" y="25" text-anchor="middle" font-family="sans-serif" font-weight="bold" font-size="14" fill="#FFFFFF">${code.slice(0, 2)}</text></svg>`;
 }
 
-export function getCountryFlagDataUrl(code: string): string {
+export function getCountryFlagFallbackDataUrl(code: string): string {
   return `data:image/svg+xml;utf8,${encodeURIComponent(getCountryFlagSvg(code))}`;
+}
+
+export function getCountryFlagDataUrl(code: string): string {
+  return resolveLocalCountryFlagUrl(code);
 }
 
 export const CountryFlag: React.FC<CountryFlagProps> = ({
@@ -142,6 +169,11 @@ export const CountryFlag: React.FC<CountryFlagProps> = ({
   size = 'md'
 }) => {
   const code = (countryCode || '').toUpperCase().trim();
+  const [imgError, setImgError] = useState(false);
+
+  useEffect(() => {
+    setImgError(false);
+  }, [countryCode]);
 
   const sizeClasses = {
     sm: 'w-6 h-4 text-sm',
@@ -150,15 +182,22 @@ export const CountryFlag: React.FC<CountryFlagProps> = ({
     xl: 'w-24 h-16 text-4xl'
   };
 
+  const srcUrl = imgError
+    ? getCountryFlagFallbackDataUrl(code)
+    : resolveLocalCountryFlagUrl(code);
+
   return (
     <div
       className={`inline-flex items-center justify-center overflow-hidden shrink-0 rounded shadow-sm bg-slate-900/60 ${sizeClasses[size]} ${className}`}
       title={code}
     >
       <img
-        src={getCountryFlagDataUrl(code)}
+        src={srcUrl}
         alt={`${code} official flag`}
         className="w-full h-full object-cover rounded shadow-sm"
+        onError={() => {
+          if (!imgError) setImgError(true);
+        }}
       />
     </div>
   );

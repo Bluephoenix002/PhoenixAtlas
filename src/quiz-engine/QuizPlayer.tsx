@@ -17,7 +17,7 @@ import { QuizDefinition, QuizQuestion, VisualClue } from './quizTypes';
 import { normalizeAnswer } from '../utils/geoMath';
 import { sounds } from '../utils/soundEngine';
 import { db, QuizAttempt } from '../database/db';
-import { CountryFlag } from '../components/CountryFlag';
+import { CountryFlag, flagEmojiToIso } from '../components/CountryFlag';
 import { SubdivisionFlag } from '../components/SubdivisionFlag';
 import { COUNTRIES_DATABASE } from '../data/countriesData';
 import { computeOfficialCountryMasteryPct } from '../maps/WorldGlobeView';
@@ -433,10 +433,10 @@ export const QuizPlayer: React.FC<QuizPlayerProps> = ({ quiz, onExit, onComplete
           <div className="mb-4 flex flex-col items-center justify-center animate-in zoom-in-95 duration-200">
             {currentQ.visualClue.type === 'flag' && (
               <div className="flex flex-col items-center gap-1.5">
-                {currentQ.countryCode && currentQ.countryCode.length === 2 && !currentQ.visualClue.value.includes(' ') ? (
+                {currentQ.countryCode && currentQ.countryCode.length === 2 && !currentQ.visualClue.value.includes(' ') && currentQ.visualClue.value.length <= 2 ? (
                   <CountryFlag countryCode={currentQ.countryCode} size="xl" className="shadow-xl" />
                 ) : (
-                  <SubdivisionFlag name={currentQ.visualClue.value} size="lg" className="shadow-xl" />
+                  <SubdivisionFlag name={currentQ.visualClue.value} countryCode={currentQ.countryCode} size="lg" className="shadow-xl" />
                 )}
                 {currentQ.visualClue.label && (
                   <span className="text-[11px] font-mono text-slate-400 mt-1">{currentQ.visualClue.label}</span>
@@ -483,8 +483,18 @@ export const QuizPlayer: React.FC<QuizPlayerProps> = ({ quiz, onExit, onComplete
         )}
 
         {!currentQ.visualClue && currentQ.flagEmoji && (
-          <div className="mb-4 text-6xl sm:text-7xl select-none filter drop-shadow-md">
-            {currentQ.flagEmoji}
+          <div className="mb-4 flex items-center justify-center">
+            {flagEmojiToIso(currentQ.flagEmoji) ? (
+              <CountryFlag
+                countryCode={flagEmojiToIso(currentQ.flagEmoji)!}
+                size="xl"
+                className="shadow-xl"
+              />
+            ) : (
+              <span className="text-6xl sm:text-7xl select-none filter drop-shadow-md">
+                {currentQ.flagEmoji}
+              </span>
+            )}
           </div>
         )}
 

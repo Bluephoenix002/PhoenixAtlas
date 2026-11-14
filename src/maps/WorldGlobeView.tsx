@@ -722,31 +722,64 @@ export const WorldGlobeView: React.FC<WorldGlobeViewProps> = ({
     }
     if (closestMicro) return closestMicro;
 
-    // 2. Check exact country polygon containment (Italy landmass -> Italy, never Vatican!)
+    // 2. Check exact country polygon containment (hole-aware + smallest-area enclave priority so Lesotho inside South Africa & Malawi inside Mozambique always work!)
     const features = geoFeaturesRef.current;
     if (features && features.length > 0) {
+      const matchedCandidates: Array<{ feature: any; area: number }> = [];
+      const computeRingBboxArea = (ring: number[][]): number => {
+        let minX = 180,
+          maxX = -180,
+          minY = 90,
+          maxY = -90;
+        for (let i = 0; i < ring.length; i++) {
+          const [rx, ry] = ring[i];
+          if (rx < minX) minX = rx;
+          if (rx > maxX) maxX = rx;
+          if (ry < minY) minY = ry;
+          if (ry > maxY) maxY = ry;
+        }
+        return Math.max(1e-6, (maxX - minX) * (maxY - minY));
+      };
+
       for (const f of features) {
         const geom = f.geometry;
         if (!geom) continue;
 
-        let matched = false;
+        let matchedArea: number | null = null;
         if (geom.type === 'Polygon') {
-          if (geom.coordinates?.[0] && isPointInPolygon([lng, lat], geom.coordinates[0])) {
-            matched = true;
+          const outer = geom.coordinates?.[0];
+          if (outer && isPointInPolygon([lng, lat], outer)) {
+            const holes = geom.coordinates.slice(1);
+            const inHole = holes.some((h: number[][]) => h && isPointInPolygon([lng, lat], h));
+            if (!inHole) {
+              matchedArea = computeRingBboxArea(outer);
+            }
           }
         } else if (geom.type === 'MultiPolygon') {
           if (geom.coordinates) {
             for (const poly of geom.coordinates) {
-              if (poly?.[0] && isPointInPolygon([lng, lat], poly[0])) {
-                matched = true;
-                break;
+              const outer = poly?.[0];
+              if (outer && isPointInPolygon([lng, lat], outer)) {
+                const holes = poly.slice(1);
+                const inHole = holes.some((h: number[][]) => h && isPointInPolygon([lng, lat], h));
+                if (!inHole) {
+                  matchedArea = computeRingBboxArea(outer);
+                  break;
+                }
               }
             }
           }
         }
 
-        if (matched) {
-          const props = f.properties || {};
+        if (matchedArea !== null) {
+          matchedCandidates.push({ feature: f, area: matchedArea });
+        }
+      }
+
+      if (matchedCandidates.length > 0) {
+        matchedCandidates.sort((a, b) => a.area - b.area);
+        for (const cand of matchedCandidates) {
+          const props = cand.feature.properties || {};
           const iso2 = props.ISO_A2 || props.iso_a2 || '';
           if (iso2 && countryMapRef.current.has(iso2)) {
             return countryMapRef.current.get(iso2)!;
@@ -2296,6 +2329,7 @@ export const WorldGlobeView: React.FC<WorldGlobeViewProps> = ({
           if (!iso2 || iso2 === '-99') return;
 
           const rings: number[][][] = [];
+          const holes: number[][][][] = [];
           let sumLat = 0,
             sumLng = 0,
             ptCount = 0;
@@ -2304,9 +2338,10 @@ export const WorldGlobeView: React.FC<WorldGlobeViewProps> = ({
             fMinLng = 180,
             fMaxLng = -180;
 
-          const collectRing = (ring: number[][]) => {
+          const collectRing = (ring: number[][], holeRings: number[][][] = []) => {
             if (!ring || ring.length < 3) return;
             rings.push(ring);
+            holes.push(holeRings.filter((hr) => Array.isArray(hr) && hr.length >= 3));
             ring.forEach(([lng, lat]) => {
               sumLat += lat;
               sumLng += lng;
@@ -2319,10 +2354,10 @@ export const WorldGlobeView: React.FC<WorldGlobeViewProps> = ({
           };
 
           if (geom.type === 'Polygon') {
-            if (geom.coordinates?.[0]) collectRing(geom.coordinates[0]);
+            if (geom.coordinates?.[0]) collectRing(geom.coordinates[0], geom.coordinates.slice(1));
           } else if (geom.type === 'MultiPolygon') {
             (geom.coordinates || []).forEach((poly: number[][][]) => {
-              if (poly?.[0]) collectRing(poly[0]);
+              if (poly?.[0]) collectRing(poly[0], poly.slice(1));
             });
           }
 
@@ -2334,6 +2369,7 @@ export const WorldGlobeView: React.FC<WorldGlobeViewProps> = ({
             shortLabel: cName,
             countryCode: iso2,
             rings,
+            holes,
             centroidLat: sumLat / ptCount,
             centroidLng: sumLng / ptCount,
             bbox: [fMinLng, fMinLat, fMaxLng, fMaxLat]

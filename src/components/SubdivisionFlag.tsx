@@ -2311,22 +2311,49 @@ export function resolveLocalSubdivisionFlagUrl(name: string, countryCode?: strin
   if (
     cc === 'CH' ||
     has('aargau') ||
+    has('argovie') ||
     has('innerrhoden') ||
     has('ausserrhoden') ||
     has('basellandschaft') ||
+    has('balecampagne') ||
     has('baselstadt') ||
+    has('baleville') ||
+    eq('basel') ||
+    has('bern') ||
+    has('fribourg') ||
+    has('freiburg') ||
+    has('geneve') ||
+    has('geneva') ||
+    has('genf') ||
+    has('glarus') ||
+    has('glaris') ||
     has('graubunden') ||
+    has('grisons') ||
+    has('grigioni') ||
+    has('jura') ||
+    has('luzern') ||
+    has('lucerne') ||
     has('neuchatel') ||
+    has('neuenburg') ||
     has('nidwalden') ||
     has('obwalden') ||
     has('schaffhausen') ||
+    has('schaffhouse') ||
     has('schwyz') ||
     has('solothurn') ||
-    has('stgallen') ||
+    has('soleure') ||
+    has('gallen') ||
     has('thurgau') ||
+    has('thurgovie') ||
     has('ticino') ||
+    has('tessin') ||
+    has('uri') ||
     has('valais') ||
+    has('wallis') ||
     has('vaud') ||
+    has('waadt') ||
+    has('zug') ||
+    has('zoug') ||
     has('zurich')
   ) {
     if (has('aargau') || has('argovie')) return '/flags/subdivisions/ch-ag.svg';
@@ -2364,16 +2391,34 @@ export function resolveLocalSubdivisionFlagUrl(name: string, countryCode?: strin
   if (
     cc === 'ES' ||
     has('andalucia') ||
+    has('andalusia') ||
+    has('aragon') ||
+    has('asturias') ||
+    has('baleares') ||
+    has('balearic') ||
+    has('balears') ||
+    has('canarias') ||
+    has('canary') ||
+    has('cantabria') ||
+    has('mancha') ||
+    has('castilla') ||
+    has('leon') ||
     has('cataluna') ||
     has('catalonia') ||
-    has('galicia') ||
-    has('paisvasco') ||
-    has('euskadi') ||
+    has('catalunya') ||
+    has('ceuta') ||
     has('extremadura') ||
-    has('castilla') ||
-    has('asturias') ||
-    has('cantabria') ||
-    has('navarra')
+    has('galicia') ||
+    has('rioja') ||
+    has('madrid') ||
+    has('melilla') ||
+    has('murcia') ||
+    has('navarra') ||
+    has('navarre') ||
+    has('vasco') ||
+    has('basque') ||
+    has('euskadi') ||
+    has('valencia')
   ) {
     if (has('andalucia') || has('andalusia')) return '/flags/subdivisions/es-an.svg';
     if (has('aragon')) return '/flags/subdivisions/es-ar.svg';
@@ -2405,15 +2450,22 @@ export function resolveLocalSubdivisionFlagUrl(name: string, countryCode?: strin
     has('quebec') ||
     has('ontario') ||
     has('britishcolumbia') ||
+    has('colombie') ||
     has('alberta') ||
     has('manitoba') ||
     has('saskatchewan') ||
     has('novascotia') ||
+    has('nouvelleecosse') ||
     has('newbrunswick') ||
+    has('nouveaubrunswick') ||
     has('newfoundland') ||
+    has('labrador') ||
+    has('terreneuve') ||
     has('princeedward') ||
+    has('princeedouard') ||
     has('yukon') ||
     has('northwestterritories') ||
+    has('territoiresdunordouest') ||
     has('nunavut')
   ) {
     if (has('alberta')) return '/flags/subdivisions/ca-ab.svg';
@@ -2443,6 +2495,7 @@ export function resolveLocalSubdivisionFlagUrl(name: string, countryCode?: strin
     has('queensland') ||
     has('southaustralia') ||
     has('tasmania') ||
+    has('victoria') ||
     has('westernaustralia') ||
     has('northernterritory') ||
     has('australiancapital')
@@ -2475,6 +2528,7 @@ export function resolveLocalSubdivisionFlagUrl(name: string, countryCode?: strin
     has('sarawak') ||
     has('selangor') ||
     has('terengganu') ||
+    has('trengganu') ||
     has('kualalumpur') ||
     has('labuan') ||
     has('putrajaya')
@@ -2502,6 +2556,8 @@ export function resolveLocalSubdivisionFlagUrl(name: string, countryCode?: strin
   // 11. BRAZIL (26 States + Distrito Federal)
   if (
     cc === 'BR' ||
+    eq('acre') ||
+    eq('para') ||
     has('alagoas') ||
     has('amapa') ||
     has('amazonas') ||

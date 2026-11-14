@@ -40,20 +40,23 @@ export function generateCountryGeographyQuiz(country: CountryInfo): QuizDefiniti
   }
 
   // Question 2: Flag
-  if (country.flagEmoji) {
-    const otherFlags = shuffle(
-      allCountries.filter((c) => c.flagEmoji && c.flagEmoji !== country.flagEmoji)
+  if (country.id) {
+    const otherNames = shuffle(
+      allCountries.filter((c) => c.name && c.name !== country.name)
     )
       .slice(0, 3)
-      .map((c) => `${c.flagEmoji} ${c.name}`);
+      .map((c) => c.name);
 
-    const correctFlagOption = `${country.flagEmoji} ${country.name}`;
     questions.push({
       id: `${country.id.toLowerCase()}-q-flag`,
       type: 'multiple-choice',
-      prompt: `Which national flag represents ${country.name}?`,
-      correctAnswer: correctFlagOption,
-      options: shuffle([correctFlagOption, ...otherFlags]),
+      prompt: 'Which sovereign nation or territory does this official flag represent?',
+      visualClue: {
+        type: 'flag',
+        value: country.id
+      },
+      correctAnswer: country.name,
+      options: shuffle([country.name, ...otherNames]),
       countryCode: country.id
     });
   }
