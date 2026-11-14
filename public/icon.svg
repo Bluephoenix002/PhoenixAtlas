@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <radialGradient id="oceanGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0f2b48"/>
+      <stop offset="100%" stop-color="#071322"/>
+    </radialGradient>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="needleGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Circle / Ocean -->
+  <rect width="512" height="512" rx="128" fill="#070c18"/>
+  <circle cx="256" cy="256" r="210" fill="url(#oceanGrad)" stroke="#1e3a5f" stroke-width="4"/>
+
+  <!-- Latitude and Longitude Graticules -->
+  <circle cx="256" cy="256" r="160" fill="none" stroke="#234269" stroke-width="2" stroke-dasharray="4 6"/>
+  <circle cx="256" cy="256" r="100" fill="none" stroke="#234269" stroke-width="2" stroke-dasharray="4 6"/>
+  <ellipse cx="256" cy="256" rx="210" ry="80" fill="none" stroke="#234269" stroke-width="2" stroke-dasharray="4 6"/>
+  <ellipse cx="256" cy="256" rx="80" ry="210" fill="none" stroke="#234269" stroke-width="2" stroke-dasharray="4 6"/>
+  <line x1="46" y1="256" x2="466" y2="256" stroke="#38bdf8" stroke-width="2" opacity="0.6"/>
+  <line x1="256" y1="46" x2="256" y2="466" stroke="#38bdf8" stroke-width="2" opacity="0.6"/>
+
+  <!-- Outer Astrolabe / Compass Ring -->
+  <circle cx="256" cy="256" r="225" fill="none" stroke="url(#ringGrad)" stroke-width="5" opacity="0.9"/>
+
+  <!-- Compass Star North Indicator -->
+  <polygon points="256,70 274,238 256,220" fill="#38bdf8"/>
+  <polygon points="256,70 238,238 256,220" fill="#0284c7"/>
+  <polygon points="256,442 274,274 256,292" fill="#64748b"/>
+  <polygon points="256,442 238,274 256,292" fill="#475569"/>
+
+  <!-- Compass Star East/West Indicator -->
+  <polygon points="442,256 274,274 292,256" fill="#10b981"/>
+  <polygon points="442,256 274,238 292,256" fill="#059669"/>
+  <polygon points="70,256 238,274 220,256" fill="#64748b"/>
+  <polygon points="70,256 238,238 220,256" fill="#475569"/>
+
+  <!-- Center Pivot Core -->
+  <circle cx="256" cy="256" r="18" fill="url(#needleGold)" stroke="#ffffff" stroke-width="3"/>
+  <circle cx="256" cy="256" r="6" fill="#070c18"/>
+</svg>

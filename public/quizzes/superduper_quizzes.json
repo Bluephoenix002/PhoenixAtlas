@@ -1,0 +1,881 @@
+[
+  {
+    "id": "world-capitals-europe",
+    "title": "European Capitals Mastery",
+    "description": "Identify the capital cities of all major European nations.",
+    "category": "Capitals",
+    "difficulty": "Medium",
+    "questionCount": 10,
+    "timeLimitSec": 25,
+    "continent": "Europe",
+    "questions": [
+      {
+        "id": "eu-cap-1",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Belgium?",
+        "options": [
+          "Brussels",
+          "Antwerp",
+          "Ghent",
+          "Bruges"
+        ],
+        "correctAnswer": "Brussels",
+        "hint": "Hosts EU & NATO headquarters"
+      },
+      {
+        "id": "eu-cap-2",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Germany?",
+        "options": [
+          "Berlin",
+          "Munich",
+          "Frankfurt",
+          "Hamburg"
+        ],
+        "correctAnswer": "Berlin",
+        "hint": "Famous for the Brandenburg Gate"
+      },
+      {
+        "id": "eu-cap-3",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Spain?",
+        "options": [
+          "Madrid",
+          "Barcelona",
+          "Seville",
+          "Valencia"
+        ],
+        "correctAnswer": "Madrid",
+        "hint": "Highest capital city in Europe after Andorra la Vella"
+      },
+      {
+        "id": "eu-cap-4",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of the Netherlands?",
+        "options": [
+          "Amsterdam",
+          "The Hague",
+          "Rotterdam",
+          "Utrecht"
+        ],
+        "correctAnswer": "Amsterdam",
+        "hint": "Known for its concentric canal rings"
+      },
+      {
+        "id": "eu-cap-5",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Italy?",
+        "options": [
+          "Rome",
+          "Milan",
+          "Florence",
+          "Naples"
+        ],
+        "correctAnswer": "Rome",
+        "hint": "The Eternal City surrounding the Vatican"
+      },
+      {
+        "id": "eu-cap-6",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Portugal?",
+        "options": [
+          "Lisbon",
+          "Porto",
+          "Coimbra",
+          "Braga"
+        ],
+        "correctAnswer": "Lisbon",
+        "hint": "Situated on seven hills at the mouth of the Tagus"
+      },
+      {
+        "id": "eu-cap-7",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Poland?",
+        "options": [
+          "Warsaw",
+          "Kraków",
+          "Gdańsk",
+          "Wrocław"
+        ],
+        "correctAnswer": "Warsaw",
+        "hint": "Bisected by the Vistula River"
+      },
+      {
+        "id": "eu-cap-8",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Sweden?",
+        "options": [
+          "Stockholm",
+          "Gothenburg",
+          "Malmö",
+          "Uppsala"
+        ],
+        "correctAnswer": "Stockholm",
+        "hint": "Built across 14 islands"
+      },
+      {
+        "id": "eu-cap-9",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Greece?",
+        "options": [
+          "Athens",
+          "Thessaloniki",
+          "Patras",
+          "Heraklion"
+        ],
+        "correctAnswer": "Athens",
+        "hint": "Cradle of Western civilization and democracy"
+      },
+      {
+        "id": "eu-cap-10",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Ireland?",
+        "options": [
+          "Dublin",
+          "Cork",
+          "Galway",
+          "Limerick"
+        ],
+        "correctAnswer": "Dublin",
+        "hint": "Located on the mouth of the River Liffey"
+      }
+    ]
+  },
+  {
+    "id": "world-capitals-asia",
+    "title": "Asian Capitals Challenge",
+    "description": "Test your knowledge of the national capitals across Asia and the Middle East.",
+    "category": "Capitals",
+    "difficulty": "Medium",
+    "questionCount": 8,
+    "timeLimitSec": 25,
+    "continent": "Asia",
+    "questions": [
+      {
+        "id": "as-cap-1",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Japan?",
+        "options": [
+          "Tokyo",
+          "Kyoto",
+          "Osaka",
+          "Nagoya"
+        ],
+        "correctAnswer": "Tokyo",
+        "hint": "Most populous metropolitan area on Earth"
+      },
+      {
+        "id": "as-cap-2",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of South Korea?",
+        "options": [
+          "Seoul",
+          "Busan",
+          "Incheon",
+          "Daegu"
+        ],
+        "correctAnswer": "Seoul",
+        "hint": "Situated along the Han River"
+      },
+      {
+        "id": "as-cap-3",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Thailand?",
+        "options": [
+          "Bangkok",
+          "Chiang Mai",
+          "Phuket",
+          "Pattaya"
+        ],
+        "correctAnswer": "Bangkok",
+        "hint": "Known locally as Krung Thep"
+      },
+      {
+        "id": "as-cap-4",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Vietnam?",
+        "options": [
+          "Hanoi",
+          "Ho Chi Minh City",
+          "Da Nang",
+          "Haiphong"
+        ],
+        "correctAnswer": "Hanoi",
+        "hint": "Located in northern Vietnam along the Red River"
+      },
+      {
+        "id": "as-cap-5",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Indonesia?",
+        "options": [
+          "Jakarta",
+          "Surabaya",
+          "Bandung",
+          "Medan"
+        ],
+        "correctAnswer": "Jakarta",
+        "hint": "Currently on the island of Java, transitioning to Nusantara"
+      },
+      {
+        "id": "as-cap-6",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of India?",
+        "options": [
+          "New Delhi",
+          "Mumbai",
+          "Kolkata",
+          "Bengaluru"
+        ],
+        "correctAnswer": "New Delhi",
+        "hint": "Seat of the three branches of the Indian Government"
+      },
+      {
+        "id": "as-cap-7",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of the Philippines?",
+        "options": [
+          "Manila",
+          "Cebu City",
+          "Davao City",
+          "Quezon City"
+        ],
+        "correctAnswer": "Manila",
+        "hint": "Borders the eastern shore of Manila Bay"
+      },
+      {
+        "id": "as-cap-8",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Turkey?",
+        "options": [
+          "Ankara",
+          "Istanbul",
+          "Izmir",
+          "Bursa"
+        ],
+        "correctAnswer": "Ankara",
+        "hint": "Centrally located on the Anatolian plateau"
+      }
+    ]
+  },
+  {
+    "id": "world-capitals-americas",
+    "title": "Americas Capitals Explorer",
+    "description": "Capitals of North, Central, and South American nations.",
+    "category": "Capitals",
+    "difficulty": "Easy",
+    "questionCount": 8,
+    "timeLimitSec": 25,
+    "continent": "North America",
+    "questions": [
+      {
+        "id": "am-cap-1",
+        "type": "multiple-choice",
+        "prompt": "What is the federal capital of the United States?",
+        "options": [
+          "Washington, D.C.",
+          "New York City",
+          "Los Angeles",
+          "Chicago"
+        ],
+        "correctAnswer": "Washington, D.C.",
+        "hint": "Distinct federal district along the Potomac River"
+      },
+      {
+        "id": "am-cap-2",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Canada?",
+        "options": [
+          "Ottawa",
+          "Toronto",
+          "Montreal",
+          "Vancouver"
+        ],
+        "correctAnswer": "Ottawa",
+        "hint": "Situated on the south bank of the Ottawa River"
+      },
+      {
+        "id": "am-cap-3",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Brazil?",
+        "options": [
+          "Brasília",
+          "Rio de Janeiro",
+          "São Paulo",
+          "Salvador"
+        ],
+        "correctAnswer": "Brasília",
+        "hint": "Planned capital designed by Oscar Niemeyer in the shape of an airplane"
+      },
+      {
+        "id": "am-cap-4",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Argentina?",
+        "options": [
+          "Buenos Aires",
+          "Córdoba",
+          "Rosario",
+          "Mendoza"
+        ],
+        "correctAnswer": "Buenos Aires",
+        "hint": "Autonomous city on the Río de la Plata"
+      },
+      {
+        "id": "am-cap-5",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Mexico?",
+        "options": [
+          "Mexico City",
+          "Guadalajara",
+          "Monterrey",
+          "Puebla"
+        ],
+        "correctAnswer": "Mexico City",
+        "hint": "Built on the ancient Aztec capital of Tenochtitlan"
+      },
+      {
+        "id": "am-cap-6",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Colombia?",
+        "options": [
+          "Bogotá",
+          "Medellín",
+          "Cali",
+          "Barranquilla"
+        ],
+        "correctAnswer": "Bogotá",
+        "hint": "Located high in the Andes mountains at 2,640 meters"
+      },
+      {
+        "id": "am-cap-7",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Peru?",
+        "options": [
+          "Lima",
+          "Cusco",
+          "Arequipa",
+          "Trujillo"
+        ],
+        "correctAnswer": "Lima",
+        "hint": "Coastal capital overlooking the Pacific Ocean"
+      },
+      {
+        "id": "am-cap-8",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Chile?",
+        "options": [
+          "Santiago",
+          "Valparaíso",
+          "Concepción",
+          "La Serena"
+        ],
+        "correctAnswer": "Santiago",
+        "hint": "Surrounded by the snow-capped Andes mountains"
+      }
+    ]
+  },
+  {
+    "id": "superduper-phone-codes",
+    "title": "Telephone Area Codes (Super-Duper)",
+    "description": "Identify countries and metropolitan areas by their international dialing codes.",
+    "category": "Geography",
+    "difficulty": "Medium",
+    "questionCount": 8,
+    "timeLimitSec": 20,
+    "questions": [
+      {
+        "id": "ph-1",
+        "type": "multiple-choice",
+        "prompt": "Which country has the international country calling code +32?",
+        "options": [
+          "Belgium",
+          "Netherlands",
+          "France",
+          "Switzerland"
+        ],
+        "correctAnswer": "Belgium",
+        "hint": "Capital is Brussels"
+      },
+      {
+        "id": "ph-2",
+        "type": "multiple-choice",
+        "prompt": "Which country has the country calling code +33?",
+        "options": [
+          "France",
+          "Spain",
+          "Italy",
+          "Germany"
+        ],
+        "correctAnswer": "France",
+        "hint": "Hexagonal nation"
+      },
+      {
+        "id": "ph-3",
+        "type": "multiple-choice",
+        "prompt": "Which country uses the country calling code +49?",
+        "options": [
+          "Germany",
+          "Austria",
+          "Poland",
+          "Denmark"
+        ],
+        "correctAnswer": "Germany",
+        "hint": "Central European power"
+      },
+      {
+        "id": "ph-4",
+        "type": "multiple-choice",
+        "prompt": "Which country uses country calling code +81?",
+        "options": [
+          "Japan",
+          "South Korea",
+          "China",
+          "Taiwan"
+        ],
+        "correctAnswer": "Japan",
+        "hint": "Land of the Rising Sun"
+      },
+      {
+        "id": "ph-5",
+        "type": "multiple-choice",
+        "prompt": "Which country has the country calling code +44?",
+        "options": [
+          "United Kingdom",
+          "Ireland",
+          "Iceland",
+          "Norway"
+        ],
+        "correctAnswer": "United Kingdom",
+        "hint": "Home to Big Ben and GMT"
+      },
+      {
+        "id": "ph-6",
+        "type": "multiple-choice",
+        "prompt": "Which country has the country calling code +31?",
+        "options": [
+          "Netherlands",
+          "Belgium",
+          "Luxembourg",
+          "Sweden"
+        ],
+        "correctAnswer": "Netherlands",
+        "hint": "Famous for tulips and windmills"
+      },
+      {
+        "id": "ph-7",
+        "type": "multiple-choice",
+        "prompt": "Which country uses country calling code +61?",
+        "options": [
+          "Australia",
+          "New Zealand",
+          "South Africa",
+          "Fiji"
+        ],
+        "correctAnswer": "Australia",
+        "hint": "Down Under"
+      },
+      {
+        "id": "ph-8",
+        "type": "multiple-choice",
+        "prompt": "Which country uses country calling code +34?",
+        "options": [
+          "Spain",
+          "Portugal",
+          "Italy",
+          "Greece"
+        ],
+        "correctAnswer": "Spain",
+        "hint": "Iberian Peninsula"
+      }
+    ]
+  },
+  {
+    "id": "us-states-capitals",
+    "title": "US 50 States & State Capitals",
+    "description": "Identify the official capitals of key US states.",
+    "category": "Provinces",
+    "difficulty": "Medium",
+    "questionCount": 8,
+    "timeLimitSec": 25,
+    "countryCode": "US",
+    "questions": [
+      {
+        "id": "us-cap-1",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of California?",
+        "options": [
+          "Sacramento",
+          "Los Angeles",
+          "San Francisco",
+          "San Diego"
+        ],
+        "correctAnswer": "Sacramento",
+        "hint": "Located at the confluence of the Sacramento and American rivers"
+      },
+      {
+        "id": "us-cap-2",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Texas?",
+        "options": [
+          "Austin",
+          "Houston",
+          "Dallas",
+          "San Antonio"
+        ],
+        "correctAnswer": "Austin",
+        "hint": "Known for live music and tech innovation"
+      },
+      {
+        "id": "us-cap-3",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of New York State?",
+        "options": [
+          "Albany",
+          "New York City",
+          "Buffalo",
+          "Rochester"
+        ],
+        "correctAnswer": "Albany",
+        "hint": "Located along the Hudson River"
+      },
+      {
+        "id": "us-cap-4",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Florida?",
+        "options": [
+          "Tallahassee",
+          "Miami",
+          "Orlando",
+          "Tampa"
+        ],
+        "correctAnswer": "Tallahassee",
+        "hint": "Located in the Florida Panhandle"
+      },
+      {
+        "id": "us-cap-5",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Washington State?",
+        "options": [
+          "Olympia",
+          "Seattle",
+          "Spokane",
+          "Tacoma"
+        ],
+        "correctAnswer": "Olympia",
+        "hint": "Situated at the southern end of Puget Sound"
+      },
+      {
+        "id": "us-cap-6",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Illinois?",
+        "options": [
+          "Springfield",
+          "Chicago",
+          "Peoria",
+          "Rockford"
+        ],
+        "correctAnswer": "Springfield",
+        "hint": "Home of Abraham Lincoln"
+      },
+      {
+        "id": "us-cap-7",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Massachusetts?",
+        "options": [
+          "Boston",
+          "Cambridge",
+          "Worcester",
+          "Springfield"
+        ],
+        "correctAnswer": "Boston",
+        "hint": "Birthplace of the American Revolution"
+      },
+      {
+        "id": "us-cap-8",
+        "type": "multiple-choice",
+        "prompt": "What is the capital of Hawaii?",
+        "options": [
+          "Honolulu",
+          "Hilo",
+          "Kailua",
+          "Kahului"
+        ],
+        "correctAnswer": "Honolulu",
+        "hint": "Located on the southeast coast of Oahu"
+      }
+    ]
+  },
+  {
+    "id": "german-bundeslaender",
+    "title": "German Bundesländer (States)",
+    "description": "Explore the 16 federal states of Germany and their capitals.",
+    "category": "Provinces",
+    "difficulty": "Medium",
+    "questionCount": 6,
+    "timeLimitSec": 25,
+    "countryCode": "DE",
+    "questions": [
+      {
+        "id": "de-st-1",
+        "type": "multiple-choice",
+        "prompt": "Which is the largest German federal state by surface area?",
+        "options": [
+          "Bavaria (Bayern)",
+          "Lower Saxony",
+          "Baden-Württemberg",
+          "North Rhine-Westphalia"
+        ],
+        "correctAnswer": "Bavaria (Bayern)",
+        "hint": "Munich is its capital"
+      },
+      {
+        "id": "de-st-2",
+        "type": "multiple-choice",
+        "prompt": "Which German state is the most populous?",
+        "options": [
+          "North Rhine-Westphalia",
+          "Bavaria",
+          "Baden-Württemberg",
+          "Hesse"
+        ],
+        "correctAnswer": "North Rhine-Westphalia",
+        "hint": "Düsseldorf is its capital and home to the Ruhr industrial region"
+      },
+      {
+        "id": "de-st-3",
+        "type": "multiple-choice",
+        "prompt": "Stuttgart is the capital of which German federal state?",
+        "options": [
+          "Baden-Württemberg",
+          "Bavaria",
+          "Rhineland-Palatinate",
+          "Saarland"
+        ],
+        "correctAnswer": "Baden-Württemberg",
+        "hint": "Southwestern state famous for the Black Forest and automotive engineering"
+      },
+      {
+        "id": "de-st-4",
+        "type": "multiple-choice",
+        "prompt": "Which city-state is the second largest city in Germany and a major seaport?",
+        "options": [
+          "Hamburg",
+          "Bremen",
+          "Berlin",
+          "Lübeck"
+        ],
+        "correctAnswer": "Hamburg",
+        "hint": "Situated on the Elbe River"
+      },
+      {
+        "id": "de-st-5",
+        "type": "multiple-choice",
+        "prompt": "Dresden is the state capital of which eastern German state?",
+        "options": [
+          "Saxony (Sachsen)",
+          "Thuringia",
+          "Brandenburg",
+          "Saxony-Anhalt"
+        ],
+        "correctAnswer": "Saxony (Sachsen)",
+        "hint": "Known as Florence on the Elbe"
+      },
+      {
+        "id": "de-st-6",
+        "type": "multiple-choice",
+        "prompt": "Which German state completely surrounds the national capital city of Berlin?",
+        "options": [
+          "Brandenburg",
+          "Mecklenburg-Vorpommern",
+          "Saxony",
+          "Lower Saxony"
+        ],
+        "correctAnswer": "Brandenburg",
+        "hint": "Potsdam is its capital"
+      }
+    ]
+  },
+  {
+    "id": "world-flags-americas",
+    "title": "Flags of the Americas",
+    "description": "Identify sovereign national flags across the American continent.",
+    "category": "Flags",
+    "difficulty": "Easy",
+    "questionCount": 6,
+    "timeLimitSec": 20,
+    "questions": [
+      {
+        "id": "fl-am-1",
+        "type": "flag",
+        "prompt": "Which country flies this maple leaf flag?",
+        "flagEmoji": "🇨🇦",
+        "options": [
+          "Canada",
+          "United States",
+          "New Zealand",
+          "Australia"
+        ],
+        "correctAnswer": "Canada",
+        "hint": "National emblem since the 18th century"
+      },
+      {
+        "id": "fl-am-2",
+        "type": "flag",
+        "prompt": "Which nation flies the Stars and Stripes with 50 stars and 13 stripes?",
+        "flagEmoji": "🇺🇸",
+        "options": [
+          "United States",
+          "Liberia",
+          "Malaysia",
+          "Puerto Rico"
+        ],
+        "correctAnswer": "United States",
+        "hint": "The 50 stars represent the 50 federal states"
+      },
+      {
+        "id": "fl-am-3",
+        "type": "flag",
+        "prompt": "Which South American nation flies this flag with the Sun of May?",
+        "flagEmoji": "🇦🇷",
+        "options": [
+          "Argentina",
+          "Uruguay",
+          "Guatemala",
+          "Honduras"
+        ],
+        "correctAnswer": "Argentina",
+        "hint": "Light blue and white horizontal bands"
+      },
+      {
+        "id": "fl-am-4",
+        "type": "flag",
+        "prompt": "Which country flies this tricolor with an eagle eating a serpent on a cactus?",
+        "flagEmoji": "🇲🇽",
+        "options": [
+          "Mexico",
+          "Italy",
+          "Bolivia",
+          "Peru"
+        ],
+        "correctAnswer": "Mexico",
+        "hint": "Aztec legend of Tenochtitlan"
+      },
+      {
+        "id": "fl-am-5",
+        "type": "flag",
+        "prompt": "Which country flies this red and white flag featuring a lone white star in a blue canton?",
+        "flagEmoji": "🇨🇱",
+        "options": [
+          "Chile",
+          "Texas",
+          "Cuba",
+          "Puerto Rico"
+        ],
+        "correctAnswer": "Chile",
+        "hint": "Long Andean nation"
+      },
+      {
+        "id": "fl-am-6",
+        "type": "flag",
+        "prompt": "Which country flies this yellow, blue, and red horizontal tricolor?",
+        "flagEmoji": "🇨🇴",
+        "options": [
+          "Colombia",
+          "Ecuador",
+          "Venezuela",
+          "Bolivia"
+        ],
+        "correctAnswer": "Colombia",
+        "hint": "Adopted in 1861, inspired by Francisco de Miranda"
+      }
+    ]
+  },
+  {
+    "id": "superduper-road-networks",
+    "title": "World Highways & Road Networks",
+    "description": "Highway naming conventions and interstate systems inspired by Super-Duper quiz.",
+    "category": "Geography",
+    "difficulty": "Hard",
+    "questionCount": 6,
+    "timeLimitSec": 25,
+    "questions": [
+      {
+        "id": "rd-1",
+        "type": "multiple-choice",
+        "prompt": "In the United States Interstate Highway System, odd-numbered interstates (like I-5 or I-95) run in which direction?",
+        "options": [
+          "North-South",
+          "East-West",
+          "Diagonal",
+          "Circular"
+        ],
+        "correctAnswer": "North-South",
+        "hint": "I-5 runs from Canada to Mexico along the West Coast"
+      },
+      {
+        "id": "rd-2",
+        "type": "multiple-choice",
+        "prompt": "In France, what letter designates the national controlled-access motorway (Autoroute) network?",
+        "options": [
+          "A",
+          "N",
+          "D",
+          "M"
+        ],
+        "correctAnswer": "A",
+        "hint": "e.g., A1 Paris-Lille, A6 Autoroute du Soleil"
+      },
+      {
+        "id": "rd-3",
+        "type": "multiple-choice",
+        "prompt": "In Germany, what is the term for the federal controlled-access expressway network famously known for sections without general speed limits?",
+        "options": [
+          "Autobahn",
+          "Bundesstraße",
+          "Schnellstraße",
+          "Kraftfahrstraße"
+        ],
+        "correctAnswer": "Autobahn",
+        "hint": "Signposted with blue signs and an A prefix"
+      },
+      {
+        "id": "rd-4",
+        "type": "multiple-choice",
+        "prompt": "In the United Kingdom, what prefix letter designates the primary motorway system?",
+        "options": [
+          "M",
+          "A",
+          "B",
+          "E"
+        ],
+        "correctAnswer": "M",
+        "hint": "e.g., M1, M25 London orbital"
+      },
+      {
+        "id": "rd-5",
+        "type": "multiple-choice",
+        "prompt": "In Spain, what letter prefix designates the state-managed toll motorways (Autopistas)?",
+        "options": [
+          "AP",
+          "A",
+          "N",
+          "R"
+        ],
+        "correctAnswer": "AP",
+        "hint": "e.g., AP-7 Autopista del Mediterráneo"
+      },
+      {
+        "id": "rd-6",
+        "type": "multiple-choice",
+        "prompt": "What is the longest continuous motorable highway system in the world, stretching from Alaska to Argentina?",
+        "options": [
+          "Pan-American Highway",
+          "Trans-Siberian Highway",
+          "Highway 1 (Australia)",
+          "Trans-Canada Highway"
+        ],
+        "correctAnswer": "Pan-American Highway",
+        "hint": "Spanning nearly 30,000 km, interrupted only by the Darién Gap"
+      }
+    ]
+  }
+]
