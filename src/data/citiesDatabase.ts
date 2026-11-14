@@ -5,6 +5,7 @@ import rawCitiesJson from '../../public/data/cities.json';
 export interface RawCityJsonRecord {
   id: string;
   name: string;
+  native_name?: string;
   country_code: string;
   continent: string;
   admin1: string;
@@ -67,6 +68,7 @@ export function getCitiesDatabase(): CityPoint[] {
     list.push({
       id: r.id,
       name: r.name,
+      nativeName: r.native_name || r.name,
       countryCode: code,
       countryName: countryEntry?.name || code,
       continent: continentFull,
@@ -92,6 +94,7 @@ export function getCitiesDatabase(): CityPoint[] {
       list.push({
         id: `${c.id}-cap`,
         name: capName,
+        nativeName: c.nativeCapital || capName,
         countryCode: c.id,
         countryName: c.name,
         continent: c.continent,

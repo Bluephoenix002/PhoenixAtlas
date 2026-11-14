@@ -2082,7 +2082,15 @@ export const WorldGlobeView: React.FC<WorldGlobeViewProps> = ({
       const cName = dbCountry?.name || cleanName(p.NAME || p.name || iso2);
       featureName = cName;
       shortLabel = cName;
-      return { featureName, shortLabel, areaCode: '', parentGroup: '', localName: '' };
+      const localCountryName = dbCountry?.nativeName || cName;
+      const localCapName = dbCountry?.nativeCapital || dbCountry?.capital || cName;
+      const resolvedLocalName =
+        opt.levelKey === 'COUNTRY_CAPITAL'
+          ? `Capital: ${localCapName} (${localCountryName})`
+          : opt.levelKey === 'COUNTRY_FLAG'
+          ? ''
+          : localCountryName;
+      return { featureName, shortLabel, areaCode: '', parentGroup: '', localName: resolvedLocalName };
     }
 
     if (opt.levelKey === 'MACRO_REGION' && p.MACRO_REGION) {
@@ -2209,9 +2217,26 @@ export const WorldGlobeView: React.FC<WorldGlobeViewProps> = ({
       p.name_local ||
       p.name_native ||
       '';
-    const trimmedLocal = String(rawLocal || '').trim();
-    const localName =
+    const trimmedLocal = String(rawLocal || '').split('|')[0].trim();
+    let localName =
       trimmedLocal && !/^(?:N\/?A|n\.a\.|NA)$/i.test(trimmedLocal) ? trimmedLocal : '';
+
+    if (
+      !isExtra &&
+      opt.category !== 'areacodes' &&
+      p.AreaCode === undefined
+    ) {
+      const localSubName = localName || shortLabel || featureName;
+      if (isMulti) {
+        const localCountryName =
+          COUNTRIES_DATABASE[countryId]?.nativeName ||
+          COUNTRIES_DATABASE[countryId]?.name ||
+          countryId;
+        localName = `${localCountryName} — ${localSubName}`;
+      } else {
+        localName = localSubName;
+      }
+    }
 
     return { featureName, shortLabel, areaCode, parentGroup, localName };
   };
@@ -2658,15 +2683,20 @@ export const WorldGlobeView: React.FC<WorldGlobeViewProps> = ({
           (limitFromGroups ? Number(limitFromGroups) : 0);
 
         const rawTargets: GlobeQuizTargetItem[] = fisherYatesShuffle(
-          citiesList.map((c) => ({
-            name: isMultiCityScope ? `${c.name} (${c.countryName})` : c.name,
-            localName: c.nativeName,
-            lat: c.lat,
-            lng: c.lng,
-            cityTier: c.tier,
-            countryCode: c.countryCode,
-            countryName: c.countryName
-          }))
+          citiesList.map((c) => {
+            const cNative = c.nativeName || c.name;
+            const countryNative =
+              COUNTRIES_DATABASE[c.countryCode]?.nativeName || c.countryName;
+            return {
+              name: isMultiCityScope ? `${c.name} (${c.countryName})` : c.name,
+              localName: isMultiCityScope ? `${cNative} (${countryNative})` : cNative,
+              lat: c.lat,
+              lng: c.lng,
+              cityTier: c.tier,
+              countryCode: c.countryCode,
+              countryName: c.countryName
+            };
+          })
         );
         const targets =
           parsedLimit > 0 && initialMode === 'quiz'
@@ -2705,7 +2735,11 @@ export const WorldGlobeView: React.FC<WorldGlobeViewProps> = ({
             studyGrp.add(dotSprite);
 
             // 2. Compact, zoom-responsive City Name pill anchored directly ABOVE the city dot
-            const sp = createCityStudyLabelSprite(t.name, strokeCss, tierNum);
+            const studyCityLabel =
+              activeQuizConfig.quizLangMode === 'native' && t.localName
+                ? t.localName
+                : t.name;
+            const sp = createCityStudyLabelSprite(studyCityLabel, strokeCss, tierNum);
             sp.center.set(0.5, -0.32);
             sp.position.copy(exactPos);
             studyGrp.add(sp);
@@ -3375,8 +3409,10 @@ export const WorldGlobeView: React.FC<WorldGlobeViewProps> = ({
             isCountryFlagQuiz || quizOption.category === 'flags'
               ? createFlagSprite(countryObj.id, shortLabel || featureName, customSubFlagUrl)
               : createTextSprite(
-                  shortLabel || featureName,
-                  localName || undefined,
+                  activeQuizConfig.quizLangMode === 'native' && localName
+                    ? localName.split('|')[0]
+                    : shortLabel || featureName,
+                  activeQuizConfig.quizLangMode === 'native' ? undefined : localName || undefined,
                   areaPillBorderCss
                 );
           sp.position.copy(latLngToVector3(lat, lng, GLOBE_RADIUS + 0.28));
@@ -4494,7 +4530,10 @@ export const WorldGlobeView: React.FC<WorldGlobeViewProps> = ({
       totalCityPointsRef.current = nextCityPts;
       setTotalCityPoints(nextCityPts);
       setCityGuessResult({
-        cityName: currentTarget.name,
+        cityName:
+          cfg.quizLangMode === 'native' && currentTarget.localName
+            ? currentTarget.localName
+            : currentTarget.name,
         distanceKm: Math.round(distKm),
         points: pts,
         guessLat: lat,

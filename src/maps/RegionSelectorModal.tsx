@@ -511,6 +511,7 @@ export const RegionSelectorModal: React.FC<RegionSelectorModalProps> = ({
           properties: {
             id: c.id,
             name: c.name,
+            nativeName: c.nativeName,
             tier: c.tier
           },
           geometry: {
@@ -520,14 +521,17 @@ export const RegionSelectorModal: React.FC<RegionSelectorModalProps> = ({
         }));
       }
 
-      const detectedNative = features.some((f: any) => {
-        const p = f.properties || {};
-        if (p.NL_NAME_1 && p.NL_NAME_1 !== 'NA') return true;
-        if (p.NL_NAME_2 && p.NL_NAME_2 !== 'NA') return true;
-        if (p.nativeName) return true;
-        const label = String(p.NAME_2 || p.NAME_1 || p.name || '');
-        return /[^\u0000-\u024F]/.test(label);
-      });
+      const detectedNative =
+        !isAreaCode && activeQuizOption.levelKey !== 'COUNTRY_FLAG'
+          ? true
+          : features.some((f: any) => {
+              const p = f.properties || {};
+              if (p.NL_NAME_1 && p.NL_NAME_1 !== 'NA') return true;
+              if (p.NL_NAME_2 && p.NL_NAME_2 !== 'NA') return true;
+              if (p.nativeName) return true;
+              const label = String(p.NAME_2 || p.NAME_1 || p.name || '');
+              return /[^\u0000-\u024F]/.test(label);
+            });
       setHasNativeScript(detectedNative);
 
       if (isAreaCode) {
@@ -1741,10 +1745,10 @@ export const RegionSelectorModal: React.FC<RegionSelectorModalProps> = ({
               </div>
             )}
 
-            {mode === 'quiz' && (
+            {(mode === 'quiz' || hasNativeScript) && (
               <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-800/80">
                 <div className="flex items-center gap-2">
-                  {!isCityQuiz && (
+                  {mode === 'quiz' && !isCityQuiz && (
                     <button
                       onClick={() => {
                         sounds.playTap();
@@ -1790,7 +1794,7 @@ export const RegionSelectorModal: React.FC<RegionSelectorModalProps> = ({
                             : 'text-slate-400 hover:text-white'
                         }`}
                       >
-                        Local Script
+                        Local Language
                       </button>
                     </div>
                   </div>
