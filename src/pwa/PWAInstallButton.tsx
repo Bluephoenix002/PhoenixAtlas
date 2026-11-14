@@ -24,10 +24,10 @@ export const PWAInstallButton: React.FC = () => {
       <button
         onClick={handleInstallClick}
         className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-white bg-sky-600 hover:bg-sky-500 border border-sky-400/40 rounded-xl shadow-lg transition-colors whitespace-nowrap cursor-pointer"
-        title="Installeer PhoenixAtlas als offline app"
+        title="Install PhoenixAtlas as an offline app"
       >
         <Download className="w-3.5 h-3.5" />
-        <span>Installeer App</span>
+        <span>Install App</span>
       </button>
 
       {showInstallModal && (
@@ -36,7 +36,7 @@ export const PWAInstallButton: React.FC = () => {
             <div className="flex items-center justify-between pb-3 border-b border-slate-800">
               <div className="flex items-center gap-2">
                 <Smartphone className="w-5 h-5 text-sky-400" />
-                <h3 className="text-base font-bold">Installeer PhoenixAtlas App</h3>
+                <h3 className="text-base font-bold">Install PhoenixAtlas App</h3>
               </div>
               <button
                 onClick={() => setShowInstallModal(false)}
@@ -49,15 +49,15 @@ export const PWAInstallButton: React.FC = () => {
               <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
                 <p className="font-bold text-sky-400 mb-1">📱 iPhone &amp; iPad (Safari)</p>
                 <p>
-                  1. Tik onderaan in Safari op het <span className="font-semibold text-white">Deel-icoon</span> (vierkantje met pijl omhoog).<br />
-                  2. Kies <span className="font-semibold text-white">Zet op beginscherm</span> (<em>Add to Home Screen</em>).
+                  1. Tap the <span className="font-semibold text-white">Share icon</span> at the bottom of Safari (square with arrow pointing up).<br />
+                  2. Select <span className="font-semibold text-white">Add to Home Screen</span>.
                 </p>
               </div>
               <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
                 <p className="font-bold text-emerald-400 mb-1">🤖 Android (Chrome / Edge)</p>
                 <p>
-                  1. Tik rechtsboven in de browser op het menu <span className="font-semibold text-white">⋮</span>.<br />
-                  2. Tik op <span className="font-semibold text-white">App installeren</span> of <span className="font-semibold text-white">Toevoegen aan startscherm</span>.
+                  1. Tap the browser menu <span className="font-semibold text-white">⋮</span> in the top-right corner.<br />
+                  2. Tap <span className="font-semibold text-white">Install app</span> or <span className="font-semibold text-white">Add to Home screen</span>.
                 </p>
               </div>
             </div>
@@ -65,7 +65,7 @@ export const PWAInstallButton: React.FC = () => {
               onClick={() => setShowInstallModal(false)}
               className="mt-5 w-full py-2.5 rounded-xl bg-sky-600 text-white font-bold text-xs hover:bg-sky-500 transition-colors"
             >
-              Sluiten
+              Close
             </button>
           </div>
         </div>

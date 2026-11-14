@@ -1,9 +1,9 @@
 # PhoenixAtlas
 
-PhoenixAtlas is een 100% offline geografisch leer- en quizplatform met een interactieve 3D-wereldbol.
+PhoenixAtlas is a 100% offline geography learning and quiz platform built around an interactive 3D globe.
 
-## Functies
+## Features
 
-- **Interactieve 3D-Wereldbol & Kaartquizzen**: Oefen alle landen, hoofdsteden, provincies/deelstaten (level 1 & 2), steden (Tier 1 t/m 5), netnummers en postcodes.
-- **Vlaggen, Talen & Alfabetten**: Leer 210 officiële subdivisievlaggen, 34 schriftsystemen en 95 wereldtalen.
-- **100% Offline & Lokaal (PWA)**: Werkt volledig zonder internetverbinding (vliegtuigstand) en kan als standalone app op Android, iOS en desktop worden geïnstalleerd. Alle scores, statistieken en instellingen worden lokaal opgeslagen via `localStorage`.
+- **Interactive 3D Globe & Map Quizzes**: Practice all countries, capitals, level 1 & level 2 administrative subdivisions, cities (Tier 1 to 5), phone area codes, and postal codes.
+- **Flags, Languages & Scripts**: Learn 210 official subdivision flags, 34 writing systems/alphabets, and 95 world languages.
+- **100% Offline & Local (PWA)**: Works completely offline without any external API calls and can be installed as a standalone app on Android, iOS, and desktop. All scores, progress, statistics, and settings are stored locally via `localStorage`.
